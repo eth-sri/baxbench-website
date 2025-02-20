@@ -2,9 +2,34 @@
 <html>
 
 <head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description"
+    content="We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code.">
+  <meta property="og:title" content="BaxBench: Can LLMs Generate Secure and Correct Backends?" />
+  <meta property="og:description"
+    content="We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code." />
+  <meta property="og:url" content="https://baxbench.com" />
 
-  <title>Under Construction</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico?v=2">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="https://baxbench.com/static/images/baxbench_icon_edited.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="BaxBench: Can LLMs Generate Secure and Correct Backends?">
+  <meta name="twitter:description"
+    content="We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="https://baxbench.com/static/images/intro_fig_im.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords"
+    content="large language model, large language models, LLM, code generation, code security, security, benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>BaxBench: Can LLMs Generate Secure and Correct Backends?</title>
+  <link rel="icon" type="image/x-icon" href="static/images/baxbench_icon_edited.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -12,6 +37,17 @@
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css"> <!-- our css -->
+  
+<!-- Friendly Analytics Tag Manager -->
+<script>
+  var _mtm = window._mtm = window._mtm || [];
+  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+  (function() {
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://app.friendlyanalytics.ch/js/container_5dZWVoMI.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Friendly Analytics Tag Manager -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
@@ -20,24 +56,291 @@
 
 <body>
 
-  <section class="hero is-purple">
+  <section class="hero is-orange">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h2 class="title publication-title"><a href=""></a> Under Construction</h2>
+            <h2 class="title publication-title"><a href=""><img class="logo" src="static/images/baxbench_icon_edited.png"></a>BaxBench: Can LLMs Generate Secure and Correct Backends?</h2>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://www.sri.inf.ethz.ch/" target="_blank">Max Mustermann</a></span>
+                <a href="https://www.sri.inf.ethz.ch/people/markvero" target="_blank">Mark Vero</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/niels" target="_blank">Niels Mündler</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://logicstar.ai/our-team/" target="_blank">Victor Chibotaru</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://logicstar.ai/our-team/" target="_blank">Veselin Raychev</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/max" target="_blank">Maximilian Baader</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/nikola" target="_blank">Nikola Jovanović</a><sup>1</sup>,</span>
+                <span class="author-block">
+              <a href="https://jxhe.info/" target="_blank">Jingxuan He</a><sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/martin" target="_blank">Martin Vechev</a><sup>1</sup></span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block">SRI Lab @ ETH Zurich</span>
+              <span class="author-block"><sup>1</sup><a href="https://www.sri.inf.ethz.ch" target="_blank">SRI Lab@ETH Zurich</a>,</span>
+              <span class="author-block"><sup>2</sup><a href="https://logicstar.ai/" target="_blank">LogicStar.ai</a>,</span>
+              <span class="author-block"><sup>3</sup><a href="https://eecs.berkeley.edu/" target="_blank">UC Berkeley</a></span>
             </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2502.11844" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/logic-star-ai/baxbench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/LogicStar/BaxBench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf-logo-pirate.png" style="width: 1em; height: 1em"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+
+                <br>
+
+                <span class="link-block">
+                  <a href=#leaderboard-section
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/leaderboard-star-svgrepo-com.svg" style="width: 1em; height: 1em"></i>
+                    </span>
+                    <span>Leaderboard</span>
+                  </a>
+                </span>
+
               </div> <!-- publications links -->
             </div> <!-- column for publications links -->
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero is-light-orange">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-justified tldr">
+            <b>TL;DR</b>:
+            We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light"">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="column has-text-centered">
+          <h2 class="title is-3">Key <span class="orange">Takeaways</span></h2>
+          <div class="has-text-justified">
+            <p>
+              <ul>
+                <li><div class="caption">Almost 65% of the solutions generated even by the best model are either incorrect or contain a security vulnerability, highlighting that LLMs cannot yet generate deployment-ready code.</div></li>
+                <li><div class="caption">On average, half of the correct solutions are insecure, raising concerns about current metrics and evaluations focusing only on code correctness.</div></li>
+                <li><div class="caption">Security requirements add coding complexity and lead to correctness tradeoffs, indicating that targeted efforts are required to increase the secure and correct coding rates of models.</div></li>
+              </ul>
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero" id="leaderboard-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"><img class="logo" src="static/images/baxbench_icon_edited.png">BaxBench Leaderboard</h2>
+          <div class="content has-text-justified">
+            In the leaderboard below, we show the performance of 11 state-of-the-art LLMs tested on BaxBench. The leaderboard can be toggled between three different prompt types with varying levels of security-specific instructions, detailed below the leaderboard for each view. See our <a href="https://arxiv.org/abs/2502.11844" target="_blank">paper</a> for more results.
+            <div id="leaderboard-toggle-buttons" class="buttons is-centered">
+              <button class="button is-warning" id="btn-none" onclick="showLeaderboard('none', this)">
+                No Security Reminder
+              </button>
+              <button class="button is-warning" id="btn-generic" onclick="showLeaderboard('generic', this)">
+                Generic Security Reminder
+              </button>
+              <button class="button is-warning" id="btn-specific" onclick="showLeaderboard('specific', this)">
+                Oracle Security Reminder
+              </button>
+            </div>   
+            <div class="table-container" id="none-container">
+            <table id="leaderboard-none">
+              <thead>
+                  <tr>
+                      <th>Rank</th>
+                      <th>Model</th>
+                      <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
+                      <th data-sort-col="pass_1">Correct</th>
+                      <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Rows will be populated by JavaScript -->
+              </tbody>
+          </table>
+          </div>
+          <div class="table-container" id="generic-container">
+          <table id="leaderboard-generic">
+            <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Model</th>
+                  <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
+                  <th data-sort-col="pass_1">Correct</th>
+                  <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+          </table>
+          </div>
+          <div class="table-container" id="specific-container">
+          <table id="leaderboard-specific">
+            <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Model</th>
+                  <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
+                  <th data-sort-col="pass_1">Correct</th>
+                  <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be populated by JavaScript -->
+            </tbody>
+          </table>
+          </div>
+          <div class="caption" id="none-caption">
+            The models are only prompted to complete the coding task. The prompt contains no security-specific instructions, reflecting a realistic interaction with a developer that does not make explicit security considerations.
+          </div>
+          <div class="caption" id="generic-caption">
+            The models are prompted to complete the coding task and is explicitly reminded to make security considerations and follow security best-practices.
+          </div>
+          <div class="caption" id="specific-caption">
+            The models are prompted to complete the coding task and is explicitly reminded to avoid specific security vulnerabilities that could occur in the given task. This setting assumes an unrealistic oracle that anticipates all security pitfalls. This prompt provides an upper bound on the models' security performance.
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">What is <span class="orange">BaxBench</span>?</h2>
+        <div class="centered-figure">
+          <img class="figure-overview" src="static/images/overview.svg" alt="Overview" class="">
+        </div>
+          <div class="content has-text-centered has-text-justified">
+            <div class="caption">
+              BaxBench is a novel coding benchmark for evaluating the ability of LLMs on generating correct and secure code in realistic, security-critical settings.
+              <!-- Overview of the structure and testing environment of BaxBench. -->
+              <!-- The benchmark consists of 392 security-critical backend coding tasks, produced by combining 28 coding scenarios with 14 popular backend development frameworks. The LLM-generated solutions are tested for functional correctness and security vulnerabilities using end-to-end functional tests and security exploits. -->
+            </div>
+            <p>
+The benchmark consists of 392 security-critical backend coding tasks. These tasks are formed by combining 28 coding scenarios with 14 popular backend development frameworks across 6 programming languages.
+Each scenario consists of an OpenAPI specification and a textual description of the API endpoints the backend application should implement. Additionally, each scenario comes with a set of functional tests and expert-designed security exploits used to test the correctness and security of the LLM-generated solutions. The LLM-generated solutions are then tested for functional correctness and security by running the tests and exploits associated with each scenario.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">How are <span class="orange">BaxBench</span> tasks tested?</h2>
+          <div class="content has-text-centered has-text-justified">
+            <p>
+              The LLM-generated solutions are tested for correctness using the end-to-end functionality tests provided for each scenario.
+              Then, to assess the vulnerability of the generated programs, we execute concrete security exploits on the generated solutions. These exploits are designed by security experts w.r.t. the scenario and are automatically executed on the models' solutions.
+              We implement two types of security exploits: (i) black-box exploits that attack the application using malicious queries, e.g., SQL injections or path traversal, and (ii) white-box exploits, e.g., checking for passwords or unencrypted secrets in the artifacts produced by the application.
+              Both the functional tests and the security exploits are framework- and implementation-agnostic enabling the modular scalability of the benchmark.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">How can I evaluate my model on <span class="orange">BaxBench</span>?</h2>
+          <div class="content has-text-centered has-text-justified">
+            <p>
+              For generating solutions to BaxBench tasks, we make a dataset of the tasks available on <a class="has-text-link" href="https://huggingface.co/datasets/LogicStar/BaxBench" target="_blank">Hugging Face</a>.
+              The dataset includes the scenario specifications, package requirements for each implementation framework, and the list of potential CWEs associated with each scenario. With this dataset, the prompts used in our evaluation can be perfectly reconstructed.
+            </p>
+            <p>
+              The generated solutions then can be tested using our <a class="has-text-link" href="https://github.com/logic-star-ai/baxbench" target="_blank">codebase</a>, which contains the functional tests and security exploits for execution. Instructions for running the tests are provided in the repository.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">How can I contribute to <span class="orange">BaxBench</span>?</h2>
+          <div class="content has-text-centered has-text-justified">
+            <p>
+              We welcome scenario, framework, test, or exploit contributions as well as general feedback from the community. Please visit our <a href="https://github.com/logic-star-ai/baxbench" target="_blank">GitHub</a> repository for details.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-5">Citation</h2>
+      <pre id="BibTeX">@article{vero2025baxbenchllmsgeneratecorrect,
+        title={BaxBench: Can LLMs Generate Correct and Secure Backends?}, 
+        author={Mark Vero and Niels Mündler and Victor Chibotaru and Veselin Raychev and Maximilian Baader and Nikola Jovanović and Jingxuan He and Martin Vechev},
+        year={2025},
+        eprint={2502.11844},
+        archivePrefix={arXiv},
+}</pre>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <button class="button is-small" onclick="copyBibtex()">📋 Copy to clipboard</button>
         </div>
       </div>
     </div>
@@ -48,24 +351,19 @@
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content has-text-centered">
-            Website and project are part of the <b><a href="https://sri.inf.ethz.ch">Secure, Reliable and Intelligent
-                Systems Lab at ETH Zurich</a></b>.
+            Website and project are part of the <b><a href="https://sri.inf.ethz.ch" target="_blank">Secure, Reliable and Intelligent
+                Systems Lab at ETH Zurich</a></b>, done in collaboration with <b><a href="https://logicstar.ai/" target="_blank">LogicStar.ai</a></b> and UC Berkeley.
             <br>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
-              target="_blank">Academic Project Page Template</a>.
+              target="_blank">Academic Project Page Template</a> and on the basis of <a href="https://watermark-stealing.org/" target="_blank">watermark-stealing.org</a>.
             <br>
             <br>
-            <img class="logos" src="static/images/footer.svg" alt="ETH & SRI Logo">
+            <img class="logos" src="static/images/footer.svg" alt="ETH, SRI & LS Logo" style="height: 3em;">
           </div>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- Cloudflare Web Analytics -->
-  <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-    data-cf-beacon='{"token": "7bd3fd9fa4364e41be6356f27688372d"}'></script>
-  <!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>

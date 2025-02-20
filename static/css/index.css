@@ -4,10 +4,20 @@ a {
   color: #3273dc;
 }
 
-.hero.is-purple {
-  background-color: #3c285f;
-  color: white;
+.hero.is-orange {
+  /* background-color: #EC963B; */
+  color: #FFD701;
+  background: #EC963B;
 }
+
+.hero.is-light-orange {
+  background-color: #ec963b81;
+}
+
+.orange {
+  color: #EC963B;
+}
+
 
 .logo {
   height: 1.8em;
@@ -25,7 +35,7 @@ a {
 }
 
 .publication-authors a {
-   color: #bbd8ed !important;
+   color: #fefaf1 !important;
 }
 
 .publication-authors a:hover {
@@ -45,25 +55,23 @@ a {
   font-size: 1.9rem;
 }
 
-.figure-stealing {
-  width: 75%;
-}
-
-.figure-spoofing {
-  width: 80%;
+.figure-overview {
+  width: 95%;
   margin-top: 10px;
 }
 
-.figure-scrubbing {
-  width: 90%;
-  margin-top: 10px;
+.centered-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .caption {
   font-weight: bold;
   margin: 20px 6% 35px 6%; 
   padding: 0 0 0 2%;
-  border-left: thick solid #aa8dd8;
+  /* border-left: thick solid #B22222; */
+  border-left: thick solid #EC963B;
   color: #3c285f;
 }
 
@@ -79,8 +87,12 @@ a {
   color: #007f00;
 }
 
+.gray {
+  color: #939393;
+}
+
 .red {
-  color: #983131;
+  color: #B22222;
 }
 
 .devilish {
@@ -221,4 +233,127 @@ button.active {
   margin: auto;
   font-size: 10px;
   padding: 3rem 1.5rem 3rem;
+}
+
+/* #leaderboard-generic,
+#leaderboard-specific {
+  display: none;
+} */
+
+#leaderboard-toggle-buttons.buttons.is-centered {
+  padding-top: 20px;
+  padding-bottom: 0px;
+}
+
+/* If you'd like the selected button to have a clearly different style,
+    you can define a custom rule for .button.is-selected:
+*/
+.button.is-selected {
+  background-color: #B22222 !important; /* Example custom color */
+  border-color: #B22222 !important;
+  color: #fff !important;
+}
+
+.button.is-selected:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.125em #b222227d  !important;
+}
+
+#leaderboard-toggle-buttons .button:not(.is-selected) {
+  background-color: #EC963B !important;
+  border-color: #EC963B !important;
+  color: #fff !important;
+}
+
+th[data-sort-col] {
+  cursor: pointer;               /* show pointer on hover */
+  transition: background-color 0.2s;
+  white-space: normal;
+}
+
+th[data-sort-col]:hover {
+  background-color: #f0f0f0;     /* slight highlight on hover */
+}
+
+.table-image {
+  max-width: 18px; /* Optional: set a maximum width */
+  height: auto;  /* Maintain aspect ratio */
+  width: auto;  /* Maintain aspect ratio */
+}
+
+.table-container {
+  /* force the container to a fixed max height, scrolling once overflowed */
+  max-height: 1000px;
+  overflow-y: auto;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.table-container table {
+  width: 100%;
+  table-layout: fixed;     /* ensures all columns are a fixed width */
+  border-collapse: collapse;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Headers centered horizontally, contents centered vertically */
+.table-container thead th:nth-child(1) {
+  text-align: left;
+  vertical-align: middle;
+  padding: 0.5rem;
+}
+
+.table-container thead th:nth-child(2) {
+  text-align: left;
+  vertical-align: middle;
+  padding: 0.5rem;
+}
+
+.table-container thead th:nth-child(n+3) {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5rem;
+}
+
+/* Cells vertically centered */
+.table-container tbody td {
+  vertical-align: middle;
+  padding: 0.5rem;
+}
+
+/* First two columns left-aligned */
+.table-container tbody td:nth-child(1),
+.table-container tbody td:nth-child(2) {
+  text-align: left;
+}
+
+/* Remaining columns right-aligned */
+.table-container tbody td:nth-child(n+3) {
+  text-align: right;
+}
+
+/* Example fixed widths per column (optional):
+   Adjust these as needed, but make sure
+   they add up sensibly within 100% total width. */
+.table-container th:nth-child(1),
+.table-container td:nth-child(1) {
+  width: 12%;
+}
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
+  width: 28%;
+}
+.table-container th:nth-child(3),
+.table-container td:nth-child(3) {
+  width: 20%;
+}
+.table-container th:nth-child(4),
+.table-container td:nth-child(4) {
+  width: 20%;
+}
+
+.table-container th:nth-child(4),
+.table-container td:nth-child(4) {
+  width: 20%;
 }

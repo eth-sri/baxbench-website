@@ -1,3 +1,3 @@
-# watermark-stealing-website
+# baxbench website repo
 
-The code for https://watermark-stealing.org/.
+The code for https://baxbench.com/.
