@@ -291,7 +291,7 @@ th[data-sort-col]:hover {
 
 .table-container table {
   width: 100%;
-  /* table-layout: fixed;     /* ensures all columns are a fixed width */
+  table-layout: fixed;     /* ensures all columns are a fixed width */
   border-collapse: collapse;
   margin-bottom: 0;
   margin-top: 0;
