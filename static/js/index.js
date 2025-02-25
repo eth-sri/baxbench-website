@@ -10,6 +10,7 @@ let modelLogos = {
     'DeepSeek R1': 'static/images/deepseek-logo-icon.png',
     'GPT-4o': 'static/images/OpenAI-black-monoblossom.png',
     'Claude 3.5 Sonnet': 'static/images/claude-ai-icon.png',
+	'Claude 3.7 Sonnet Thinking': 'static/images/claude-ai-icon.png',
     'Llama 3.3 70B': 'static/images/meta-logo.png',
     'DeepSeek V3': 'static/images/deepseek-logo-icon.png',
     'Qwen2.5 Coder': 'static/images/qwen-color.png',
