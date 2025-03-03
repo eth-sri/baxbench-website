@@ -265,6 +265,10 @@ button.active {
   color: #fff !important;
 }
 
+tbody tr:hover {
+  background-color: #f0f0f0;     /* slight highlight on hover */
+}
+
 th[data-sort-col] {
   cursor: pointer;               /* show pointer on hover */
   transition: background-color 0.2s;
@@ -283,7 +287,7 @@ th[data-sort-col]:hover {
 
 .table-container {
   /* force the container to a fixed max height, scrolling once overflowed */
-  max-height: 1000px;
+  max-height: 580px;
   overflow-y: auto;
   margin-bottom: 0;
   margin-top: 0;

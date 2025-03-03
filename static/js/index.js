@@ -9,14 +9,23 @@ let modelLogos = {
     'OpenAI o3-mini': 'static/images/OpenAI-black-monoblossom.png',
     'DeepSeek R1': 'static/images/deepseek-logo-icon.png',
     'GPT-4o': 'static/images/OpenAI-black-monoblossom.png',
+	'GPT-4o New': 'static/images/OpenAI-black-monoblossom.png',
     'Claude 3.5 Sonnet': 'static/images/claude-ai-icon.png',
 	'Claude 3.7 Sonnet Thinking': 'static/images/claude-ai-icon.png',
     'Llama 3.3 70B': 'static/images/meta-logo.png',
     'DeepSeek V3': 'static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Qwen 32B': 'static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Llama 70B': 'static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Qwen 14B': 'static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Qwen 1.5B': 'static/images/deepseek-logo-icon.png',
     'Qwen2.5 Coder': 'static/images/qwen-color.png',
     'Qwen2.5 72B': 'static/images/qwen-color.png',
     'Qwen2.5 7B': 'static/images/qwen-color.png',
+	'Qwen Max': 'static/images/qwen-color.png',
     'Codestral': 'static/images/mistral-ai-icon.png',
+	'Gemma 2 27B': 'static/images/gemma.png',
+	'Gemini 2 Flash': 'static/images/gemini.png',
+	'Grok 2': 'static/images/grok.png',
 };
 
 // Global arrays to hold leaderboard data
