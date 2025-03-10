@@ -26,6 +26,7 @@ let modelLogos = {
 	'Gemma 2 27B': 'static/images/gemma.png',
 	'Gemini 2 Flash': 'static/images/gemini.png',
 	'Grok 2': 'static/images/grok.png',
+	'QwQ 32B': 'static/images/qwen-color.png',
 };
 
 // Global arrays to hold leaderboard data
