@@ -7,10 +7,12 @@ function copyBibtex() {
 let modelLogos = {
 	'OpenAI o1': 'static/images/OpenAI-black-monoblossom.png',
     'OpenAI o3-mini': 'static/images/OpenAI-black-monoblossom.png',
+	'OpenAI o3': 'static/images/OpenAI-black-monoblossom.png',
     'DeepSeek R1': 'static/images/deepseek-logo-icon.png',
     'GPT-4o': 'static/images/OpenAI-black-monoblossom.png',
 	'GPT-4o New': 'static/images/OpenAI-black-monoblossom.png',
 	'GPT-4.1': 'static/images/OpenAI-black-monoblossom.png',
+	'GPT-4.1 Mini': 'static/images/OpenAI-black-monoblossom.png',
     'Claude 3.5 Sonnet': 'static/images/claude-ai-icon.png',
 	'Claude 3.7 Sonnet Thinking': 'static/images/claude-ai-icon.png',
     'Llama 3.3 70B': 'static/images/meta-logo.png',
@@ -32,6 +34,8 @@ let modelLogos = {
 	'Gemini 2 Flash': 'static/images/gemini.png',
 	'Gemini 2.5 Pro': 'static/images/gemini.png',
 	'Grok 2': 'static/images/grok.png',
+	'Grok 3': 'static/images/grok.png',
+	'Grok 3 Thinking': 'static/images/grok.png',
 	'QwQ 32B': 'static/images/qwen-color.png',
 };
 
