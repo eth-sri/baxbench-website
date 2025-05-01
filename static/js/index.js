@@ -37,6 +37,7 @@ let modelLogos = {
 	'Grok 3': 'static/images/grok.png',
 	'Grok 3 Thinking': 'static/images/grok.png',
 	'QwQ 32B': 'static/images/qwen-color.png',
+	'Qwen3 235B': 'static/images/qwen-color.png',
 };
 
 // Global arrays to hold leaderboard data
