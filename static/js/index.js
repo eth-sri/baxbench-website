@@ -15,6 +15,7 @@ let modelLogos = {
 	'GPT-4.1 Mini': 'static/images/OpenAI-black-monoblossom.png',
     'Claude 3.5 Sonnet': 'static/images/claude-ai-icon.png',
 	'Claude 3.7 Sonnet Thinking': 'static/images/claude-ai-icon.png',
+	'Claude 4 Sonnet Thinking': 'static/images/claude-ai-icon.png',
     'Llama 3.3 70B': 'static/images/meta-logo.png',
 	'Llama 4 Maverick': 'static/images/meta-logo.png',
     'DeepSeek V3': 'static/images/deepseek-logo-icon.png',
