@@ -36,6 +36,7 @@ let modelLogos = {
 	'Gemini 2.5 Pro': 'static/images/gemini.png',
 	'Grok 2': 'static/images/grok.png',
 	'Grok 3': 'static/images/grok.png',
+	'Grok 4': 'static/images/grok.png',
 	'Grok 3 Thinking': 'static/images/grok.png',
 	'QwQ 32B': 'static/images/qwen-color.png',
 	'Qwen3 235B': 'static/images/qwen-color.png',
