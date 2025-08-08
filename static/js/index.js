@@ -12,6 +12,7 @@ let modelLogos = {
     'GPT-4o': 'static/images/OpenAI-black-monoblossom.png',
 	'GPT-4o New': 'static/images/OpenAI-black-monoblossom.png',
 	'GPT-4.1': 'static/images/OpenAI-black-monoblossom.png',
+	'GPT-5': 'static/images/OpenAI-black-monoblossom.png',
 	'GPT-4.1 Mini': 'static/images/OpenAI-black-monoblossom.png',
     'Claude 3.5 Sonnet': 'static/images/claude-ai-icon.png',
 	'Claude 3.7 Sonnet Thinking': 'static/images/claude-ai-icon.png',
