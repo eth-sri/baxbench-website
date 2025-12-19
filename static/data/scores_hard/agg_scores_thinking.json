@@ -1,0 +1,23 @@
+{
+    "model='claude-3-7-sonnet-20250219' pass@1": 0.6476190476190476,
+    "model='claude-3-7-sonnet-20250219' sec_pass@1": 0.17142857142857146,
+    "model='claude-3-7-sonnet-20250219' insec": 74.81684981684981,
+    "model='claude-sonnet-4-5-20250929' pass@1": 0.8285714285714285,
+    "model='claude-sonnet-4-5-20250929' sec_pass@1": 0.2507936507936508,
+    "model='claude-sonnet-4-5-20250929' insec": 68.21145124716554,
+    "model='x-ai-grok-4' pass@1": 0.42142857142857143,
+    "model='x-ai-grok-4' sec_pass@1": 0.16428571428571428,
+    "model='x-ai-grok-4' insec": 59.89177489177489,
+    "model='Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8' pass@1": 0.21746031746031744,
+    "model='Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8' sec_pass@1": 0.03571428571428571,
+    "model='Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8' insec": 85.55555555555556,
+    "model='claude-sonnet-4-20250514' pass@1": 0.6857142857142857,
+    "model='claude-sonnet-4-20250514' sec_pass@1": 0.22142857142857145,
+    "model='claude-sonnet-4-20250514' insec": 69.47278911564626,
+    "model='deepseek-ai/DeepSeek-R1' pass@1": 0.35,
+    "model='deepseek-ai/DeepSeek-R1' sec_pass@1": 0.08571428571428573,
+    "model='deepseek-ai/DeepSeek-R1' insec": 75.47619047619048,
+    "model='gpt-5-2025-08-07' pass@1": 0.5928571428571429,
+    "model='gpt-5-2025-08-07' sec_pass@1": 0.3071428571428571,
+    "model='gpt-5-2025-08-07' insec": 55.23504273504274
+}

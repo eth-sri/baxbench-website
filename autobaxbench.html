@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description"
+    content="We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code.">
+  <meta property="og:title" content="BaxBench: Can LLMs Generate Secure and Correct Backends?" />
+  <meta property="og:description"
+    content="We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code." />
+  <meta property="og:url" content="https://baxbench.com" />
+
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="https://baxbench.com/static/images/baxbench_icon_edited.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="BaxBench: Can LLMs Generate Secure and Correct Backends?">
+  <meta name="twitter:description"
+    content="We introduce a novel benchmark to evaluate LLMs on secure and correct code generation, showing that even flagship LLMs are not ready for coding automation, frequently generating insecure or incorrect code.">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="https://baxbench.com/static/images/intro_fig_im.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords"
+    content="large language model, large language models, LLM, code generation, code security, security, benchmark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AutoBaxBuilder: Bootstrapping Code Security Benchmarking</title>
+  <link rel="icon" type="image/x-icon" href="static/images/autobaxbench_icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-switch.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css"> <!-- our css -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/index.js"></script> <!-- our JS -->
+  <!-- Friendly Analytics -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setExcludedQueryParams", ["_gl", "gad_source", "wbraid"]]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://app.friendlyanalytics.ch/";
+      _paq.push(['setTrackerUrl', u + 'js/tracker.php']);
+      _paq.push(['setSiteId', '370']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.async = true; g.src = u + 'js/tracker.php'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Friendly Analytics Code -->
+</head>
+
+<body>
+
+  <section class="hero is-orange">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div class="global-tabs">
+              <a href="index.html" class="global-tab">BaxBench</a>
+              <a href="autobaxbench.html" class="global-tab active">AutoBaxBench</a>
+            </div>
+            <h2 class="title publication-title"><a href=""><img class="logo"
+                  src="static/images/autobaxbench_icon.png"></a>AutoBaxBuilder: Bootstrapping Code Security Benchmarking
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a>Tobias von Arx</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/markvero" target="_blank">Mark Vero</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/niels" target="_blank">Niels Mündler</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/max" target="_blank">Maximilian
+                  Baader</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.sri.inf.ethz.ch/people/martin" target="_blank">Martin
+                  Vechev</a><sup>1,2</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup><a href="https://www.sri.inf.ethz.ch" target="_blank">SRI Lab@ETH
+                  Zurich</a>,</span>
+              <span class="author-block"><sup>2</sup><a href="https://insait.ai/" target="_blank">INSAIT</a></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/TODO" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/logic-star-ai/baxbench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/LogicStar/BaxBench" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf-logo-pirate.png" style="width: 1em; height: 1em"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href=#leaderboard-section class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/leaderboard-star-svgrepo-com.svg" style="width: 1em; height: 1em"></i>
+                    </span>
+                    <span>Leaderboard</span>
+                  </a>
+                </span>
+
+              </div> <!-- publications links -->
+            </div> <!-- column for publications links -->
+            <div style="color: white !important; margin-top: 20px;">
+              <!-- <img src="static/images/light-bulb.png" style="width: 1.5em;"></i> -->
+              <span style="font-size: 1.5rem;">
+                Paper under review. We are calling for community contributions! Please visit our <a href="TODO_LINK"
+                  target="_blank" style="color: #FFD701;">GitHub</a> repository for details.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="hero is-light-orange">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-justified tldr">
+            <b>TL;DR</b>:
+            We present AutoBaxBuilder, an automated framework that generates code security benchmark tasks from scratch,
+            reducing manual effort by ~12× while successfully reproducing or outmatching expert-written tests and
+            exploits.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="column has-text-centered">
+          <h2 class="title is-3">Key <span class="orange">Takeaways</span></h2>
+          <div class="has-text-justified">
+            <p>
+            <ul>
+              <li>
+                <div class="caption">AutoBaxBuilder generates complete benchmark tasks (scenarios, tests, exploits) in
+                  under 2 hours for less than USD 10, representing a ~12× reduction in effort compared to manual
+                  creation.</div>
+              </li>
+              <li>
+                <div class="caption">Generated tests and exploits successfully reproduce or outmatch expert-written ones
+                  on BaxBench scenarios, tightening the upper security bound.</div>
+              </li>
+              <li>
+                <div class="caption">The framework addresses benchmark contamination and enables continuous expansion
+                  with varying difficulty levels to challenge increasingly capable LLMs.</div>
+              </li>
+            </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section hero is-light" id="leaderboard-section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"><img class="logo" src="static/images/autobaxbench_icon.png">AutoBaxBench Leaderboard
+          </h2>
+          <div class="content has-text-justified">
+            In the leaderboard below, we show the performance of state-of-the-art LLMs tested on AutoBaxBench scenarios.
+            The leaderboard can be toggled between three difficulty levels, detailed below the leaderboard for each
+            view.
+            <div id="leaderboard-toggle-buttons" class="buttons is-centered">
+              <button class="button is-warning" id="btn-easy" onclick="showLeaderboard('abb-easy', this)">
+                Easy
+              </button>
+              <button class="button is-warning" id="btn-medium" onclick="showLeaderboard('abb-medium', this)">
+                Medium
+              </button>
+              <button class="button is-warning" id="btn-hard" onclick="showLeaderboard('abb-hard', this)">
+                Hard
+              </button>
+            </div>
+            <div class="table-container" id="abb-easy-container">
+              <table id="leaderboard-abb-easy">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
+                    <th data-sort-col="pass_1">Correct</th>
+                    <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+            <div class="table-container" id="abb-medium-container">
+              <table id="leaderboard-abb-medium">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
+                    <th data-sort-col="pass_1">Correct</th>
+                    <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+            <div class="table-container" id="abb-hard-container">
+              <table id="leaderboard-abb-hard">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Model</th>
+                    <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
+                    <th data-sort-col="pass_1">Correct</th>
+                    <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Rows will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+            <div class="caption" id="abb-easy-caption">
+              Performance on AutoBaxBench Easy difficulty: Scenarios with simpler security requirements and coding
+              tasks.
+            </div>
+            <div class="caption" id="abb-medium-caption">
+              Performance on AutoBaxBench Medium difficulty: Scenarios comparable in difficulty to BaxBench, testing
+              more complex security-critical implementations.
+            </div>
+            <div class="caption" id="abb-hard-caption">
+              Performance on AutoBaxBench Hard difficulty: Challenging scenarios with complex security requirements that
+              test the limits of current LLMs.
+            </div>
+            <div class="caption" style="margin-top: 15px; font-style: italic;">
+              Models marked with * were used during the AutoBaxBuilder pipeline iteration. Please interpret their scores
+              cautiously.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">What is <span class="orange">AutoBaxBench</span>?</h2>
+          <div class="content has-text-centered has-text-justified">
+            <div class="caption">
+              AutoBaxBench is an automated framework that generates code security benchmark tasks from scratch, addressing the challenge of benchmark contamination and the need for continuously expanding evaluations.
+            </div>
+            <p>
+              As LLMs see wide adoption in software engineering, reliable assessment of code correctness and security is crucial. However, manually-crafted benchmarks are insufficient long-term due to: (i) inevitable training data contamination, (ii) the need to extend to new tasks, and (iii) increasing difficulty requirements for more capable LLMs.
+            </p>
+            <p>
+              AutoBaxBench addresses these challenges through an agentic LLM-based pipeline that creates new scenarios with minimal human intervention. The framework generates complete task triplets: scenarios, functionality tests, and security exploits. A new task can be generated in under 2 hours, costing under USD 10, representing a ~12× reduction in effort compared to manual creation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">How does <span class="orange">AutoBaxBuilder</span> work?</h2>
+          <div class="centered-figure">
+            <img class="figure-overview" src="static/images/autobaxbuilder_pipeline.png" alt="AutoBaxBuilder Pipeline"
+              style="max-width: 100%; height: auto;">
+          </div>
+          <div class="content has-text-centered has-text-justified">
+            <div class="caption">
+              <strong>Figure 1: Overview of our method.</strong> The LLM-based pipeline starts from scratch and produces
+              a complete benchmark instance with (1) scenario description, (2) test cases and (3) end-to-end exploits.
+              After generating a novel scenario description, the LLM generates functional tests and solutions, iterating
+              until execution feedback confirms that the tests are solvable. Next, the LLM designs end-to-end exploits
+              to expose vulnerabilities, iterating until it finds a pair of solutions, one on which the exploit succeeds
+              and one on which it fails. The results are combined into a new task instance.
+            </div>
+            <p>
+              The AutoBaxBuilder pipeline employs an agentic LLM-based approach that starts from scratch and produces
+              complete benchmark instances. The pipeline generates novel scenario descriptions, automatically creates
+              functional tests through iterative refinement based on execution feedback, and designs end-to-end security
+              exploits that are validated against multiple solutions to ensure they correctly identify vulnerabilities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3"><span class="orange">AutoBaxBuilder</span> vs Expert-Written Tests</h2>
+          <div class="centered-figure">
+            <img class="figure-overview" src="static/images/stats_autobaxbench_vs_baxbench.png"
+              alt="AutoBaxBuilder vs Expert-Written Tests Comparison" style="max-width: 100%; height: auto;">
+          </div>
+          <div class="content has-text-centered has-text-justified">
+            <div class="caption">
+              Comparison of AutoBaxBuilder-generated tests and exploits against expert-written ones on the original
+              BaxBench scenarios.
+            </div>
+            <p>
+              To validate the quality of AutoBaxBuilder, we compared its generated tests and exploits against those
+              written by security experts on the same BaxBench scenarios. Our evaluation shows that AutoBaxBuilder
+              successfully reproduces or outmatches the expert-written functional tests and exploits, tightening the
+              upper security bound reported by BaxBench.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">How can I contribute to <span class="orange">AutoBaxBench</span>?</h2>
+          <div class="content has-text-centered has-text-justified">
+            <p>
+              We welcome contributions to improve the AutoBaxBuilder pipeline, add new scenarios generated by the
+              system, or provide feedback on the quality of generated tasks. Please visit our <a
+                href="https://github.com/logic-star-ai/baxbench" target="_blank">GitHub</a> repository for details.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-5">Citation</h2>
+      <pre id="BibTeX">@article{vonarx2025autobaxbenchbootstrappingcode,
+        title={AutoBaxBuilder: Bootstrapping Code Security Benchmarking}, 
+        author={Tobias von Arx and Mark Vero and Niels Mündler and Maximilian Baader and Martin Vechev},
+        year={2025},
+        note={Under review}
+}</pre>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <button class="button is-small" onclick="copyBibtex()">📋 Copy to clipboard</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            Website and project are part of the <b><a href="https://sri.inf.ethz.ch" target="_blank">Secure, Reliable
+                and Intelligent
+                Systems Lab at ETH Zurich</a></b>, done in collaboration with <b><a href="https://logicstar.ai/"
+                target="_blank">LogicStar.ai</a></b> and UC Berkeley.
+            <br>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+              target="_blank">Academic Project Page Template</a> and on the basis of <a
+              href="https://watermark-stealing.org/" target="_blank">watermark-stealing.org</a>.
+            <!-- <a href="https://www.flaticon.com/free-icons/idea" title="idea icons">Idea icons created by Freepik - Flaticon</a> -->
+            <br>
+            <br>
+            <img class="logos" src="static/images/footer.svg" alt="ETH, SRI & LS Logo" style="height: 3em;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
