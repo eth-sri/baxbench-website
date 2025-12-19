@@ -6,13 +6,13 @@
     "insec_pass": 51.28974396776253
   },
   {
-    "model": "Claude Sonnet 4*",
+    "model": "Claude Sonnet 4 *",
     "pass_1": 0.7785714285714285,
     "sec_pass_1": 0.3785714285714286,
     "insec_pass": 51.104117484314294
   },
   {
-    "model": "GPT-5*",
+    "model": "GPT-5 *",
     "pass_1": 0.5857142857142857,
     "sec_pass_1": 0.32142857142857134,
     "insec_pass": 41.99151455453977
@@ -36,13 +36,13 @@
     "insec_pass": 51.32641168355453
   },
   {
-    "model": "DeepSeek R1*",
+    "model": "DeepSeek R1 *",
     "pass_1": 0.42142857142857143,
     "sec_pass_1": 0.1821428571428572,
     "insec_pass": 55.51368503291582
   },
   {
-    "model": "Qwen3 Coder*",
+    "model": "Qwen3 Coder *",
     "pass_1": 0.2964285714285714,
     "sec_pass_1": 0.13571428571428573,
     "insec_pass": 53.23593073593074

@@ -10,54 +10,54 @@ function copyBibtexABB() {
 
 // Global mapping for the model logos
 let modelLogos = {
-  'OpenAI o1': 'static/images/OpenAI-black-monoblossom.png',
-    'OpenAI o3-mini': 'static/images/OpenAI-black-monoblossom.png',
-	'OpenAI o3': 'static/images/OpenAI-black-monoblossom.png',
-    'DeepSeek R1': 'static/images/deepseek-logo-icon.png',
-    'GPT-4o': 'static/images/OpenAI-black-monoblossom.png',
-	'GPT-4o New': 'static/images/OpenAI-black-monoblossom.png',
-	'GPT-4.1': 'static/images/OpenAI-black-monoblossom.png',
-	'GPT-5': 'static/images/OpenAI-black-monoblossom.png',
-	'GPT-4.1 Mini': 'static/images/OpenAI-black-monoblossom.png',
-    'Claude 3.5 Sonnet': 'static/images/claude-ai-icon.png',
-	'Claude 3.7 Sonnet Thinking': 'static/images/claude-ai-icon.png',
-	'Claude 4 Sonnet Thinking': 'static/images/claude-ai-icon.png',
-	'Claude Opus 4.5 Thinking': 'static/images/claude-ai-icon.png',
-    'Llama 3.3 70B': 'static/images/meta-logo.png',
-	'Llama 4 Maverick': 'static/images/meta-logo.png',
-    'DeepSeek V3': 'static/images/deepseek-logo-icon.png',
-	'DeepSeek V3 03-24': 'static/images/deepseek-logo-icon.png',
-	'DS R1 Distill Qwen 32B': 'static/images/deepseek-logo-icon.png',
-	'DS R1 Distill Llama 70B': 'static/images/deepseek-logo-icon.png',
-	'DS R1 Distill Qwen 14B': 'static/images/deepseek-logo-icon.png',
-	'DS R1 Distill Qwen 1.5B': 'static/images/deepseek-logo-icon.png',
-    'Qwen2.5 Coder': 'static/images/qwen-color.png',
-    'Qwen2.5 72B': 'static/images/qwen-color.png',
-    'Qwen2.5 7B': 'static/images/qwen-color.png',
-	'Qwen Max': 'static/images/qwen-color.png',
-    'Codestral': 'static/images/mistral-ai-icon.png',
-	'Mistral Small 3.1': 'static/images/mistral-ai-icon.png',
-	'Ministral 8B': 'static/images/mistral-ai-icon.png',
-	'Gemma 2 27B': 'static/images/gemma.png',
-	'Gemini 2 Flash': 'static/images/gemini.png',
-	'Gemini 2.5 Pro': 'static/images/gemini.png',
-	'Grok 2': 'static/images/grok.png',
-	'Grok 3': 'static/images/grok.png',
-	'Grok 4': 'static/images/grok.png',
-	'Grok 3 Thinking': 'static/images/grok.png',
-	'QwQ 32B': 'static/images/qwen-color.png',
-	'Qwen3 235B': 'static/images/qwen-color.png',
-	'Qwen3 Coder': 'static/images/qwen-color.png',
-  'DeepSeek R1*': 'static/images/deepseek-logo-icon.png',
-  'GPT-5*': 'static/images/OpenAI-black-monoblossom.png',
-  'Claude 3.7 Sonnet': 'static/images/claude-ai-icon.png',
-  'Claude Sonnet 4': 'static/images/claude-ai-icon.png',
-  'Claude Sonnet 4*': 'static/images/claude-ai-icon.png',
-  'Claude Sonnet 4.5': 'static/images/claude-ai-icon.png',
-  'Qwen 2.5 72B': 'static/images/qwen-color.png',
-  'Qwen 2.5 7B': 'static/images/qwen-color.png',
-  'Codestral 2501': 'static/images/mistral-ai-icon.png',
-  'Qwen3 Coder*': 'static/images/qwen-color.png',
+  'OpenAI o1': '/static/images/OpenAI-black-monoblossom.png',
+    'OpenAI o3-mini': '/static/images/OpenAI-black-monoblossom.png',
+	'OpenAI o3': '/static/images/OpenAI-black-monoblossom.png',
+    'DeepSeek R1': '/static/images/deepseek-logo-icon.png',
+    'GPT-4o': '/static/images/OpenAI-black-monoblossom.png',
+	'GPT-4o New': '/static/images/OpenAI-black-monoblossom.png',
+	'GPT-4.1': '/static/images/OpenAI-black-monoblossom.png',
+	'GPT-5': '/static/images/OpenAI-black-monoblossom.png',
+	'GPT-4.1 Mini': '/static/images/OpenAI-black-monoblossom.png',
+    'Claude 3.5 Sonnet': '/static/images/claude-ai-icon.png',
+	'Claude 3.7 Sonnet Thinking': '/static/images/claude-ai-icon.png',
+	'Claude 4 Sonnet Thinking': '/static/images/claude-ai-icon.png',
+	'Claude Opus 4.5 Thinking': '/static/images/claude-ai-icon.png',
+    'Llama 3.3 70B': '/static/images/meta-logo.png',
+	'Llama 4 Maverick': '/static/images/meta-logo.png',
+    'DeepSeek V3': '/static/images/deepseek-logo-icon.png',
+	'DeepSeek V3 03-24': '/static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Qwen 32B': '/static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Llama 70B': '/static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Qwen 14B': '/static/images/deepseek-logo-icon.png',
+	'DS R1 Distill Qwen 1.5B': '/static/images/deepseek-logo-icon.png',
+    'Qwen2.5 Coder': '/static/images/qwen-color.png',
+    'Qwen2.5 72B': '/static/images/qwen-color.png',
+    'Qwen2.5 7B': '/static/images/qwen-color.png',
+	'Qwen Max': '/static/images/qwen-color.png',
+    'Codestral': '/static/images/mistral-ai-icon.png',
+	'Mistral Small 3.1': '/static/images/mistral-ai-icon.png',
+	'Ministral 8B': '/static/images/mistral-ai-icon.png',
+	'Gemma 2 27B': '/static/images/gemma.png',
+	'Gemini 2 Flash': '/static/images/gemini.png',
+	'Gemini 2.5 Pro': '/static/images/gemini.png',
+	'Grok 2': '/static/images/grok.png',
+	'Grok 3': '/static/images/grok.png',
+	'Grok 4': '/static/images/grok.png',
+	'Grok 3 Thinking': '/static/images/grok.png',
+	'QwQ 32B': '/static/images/qwen-color.png',
+	'Qwen3 235B': '/static/images/qwen-color.png',
+	'Qwen3 Coder': '/static/images/qwen-color.png',
+  'DeepSeek R1 *': '/static/images/deepseek-logo-icon.png',
+  'GPT-5 *': '/static/images/OpenAI-black-monoblossom.png',
+  'Claude 3.7 Sonnet': '/static/images/claude-ai-icon.png',
+  'Claude Sonnet 4': '/static/images/claude-ai-icon.png',
+  'Claude Sonnet 4 *': '/static/images/claude-ai-icon.png',
+  'Claude Sonnet 4.5': '/static/images/claude-ai-icon.png',
+  'Qwen 2.5 72B': '/static/images/qwen-color.png',
+  'Qwen 2.5 7B': '/static/images/qwen-color.png',
+  'Codestral 2501': '/static/images/mistral-ai-icon.png',
+  'Qwen3 Coder *': '/static/images/qwen-color.png',
 };
 
 // Global arrays to hold leaderboard data
@@ -79,7 +79,7 @@ let descending = true;             // always true (no toggling)
 // 1) FETCH + STORE + BUILD TABLES
 document.addEventListener('DOMContentLoaded', () => {
   // Fetch the "none" data
-  fetch('static/data/leaderboard_data_none.json')
+  fetch('/static/data/leaderboard_data_none.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.error('Fetch error for none:', err));
 
   // Fetch the "generic" data
-  fetch('static/data/leaderboard_data_generic.json')
+  fetch('/static/data/leaderboard_data_generic.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.error('Fetch error for generic:', err));
 
   // Fetch the "specific" data
-  fetch('static/data/leaderboard_data_specific.json')
+  fetch('/static/data/leaderboard_data_specific.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.error('Fetch error for specific:', err));
 
   // Fetch AutoBaxBench Easy data
-  fetch('static/data/leaderboard_data_abb_easy.json')
+  fetch('/static/data/leaderboard_data_abb_easy.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.error('Fetch error for abb-easy:', err));
 
   // Fetch AutoBaxBench Medium data
-  fetch('static/data/leaderboard_data_abb_medium.json')
+  fetch('/static/data/leaderboard_data_abb_medium.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(err => console.error('Fetch error for abb-medium:', err));
 
   // Fetch AutoBaxBench Hard data
-  fetch('static/data/leaderboard_data_abb_hard.json')
+  fetch('/static/data/leaderboard_data_abb_hard.json')
     .then(response => {
       if (!response.ok) throw new Error('Network response was not ok');
       return response.json();

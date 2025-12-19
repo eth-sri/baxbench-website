@@ -1,6 +1,6 @@
 [
   {
-    "model": "GPT-5*",
+    "model": "GPT-5 *",
     "pass_1": 0.5928571428571429,
     "sec_pass_1": 0.3071428571428571,
     "insec_pass": 55.23504273504274
@@ -36,13 +36,13 @@
     "insec_pass": 59.89177489177489
   },
   {
-    "model": "DeepSeek R1*",
+    "model": "DeepSeek R1 *",
     "pass_1": 0.35,
     "sec_pass_1": 0.08571428571428573,
     "insec_pass": 75.47619047619048
   },
   {
-    "model": "Qwen3 Coder*",
+    "model": "Qwen3 Coder *",
     "pass_1": 0.21746031746031744,
     "sec_pass_1": 0.03571428571428571,
     "insec_pass": 85.55555555555556

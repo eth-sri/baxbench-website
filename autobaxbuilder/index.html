@@ -151,7 +151,7 @@
           <div class="column has-text-justified tldr">
             <b>TL;DR</b>:
             We present AutoBaxBuilder, an automated framework that generates code security benchmark tasks from scratch,
-            reducing manual effort by ~12× while successfully reproducing or outmatching expert-written tests and
+            reducing manual effort by ~12× while matching or outperforming expert tests and
             exploits.
           </div>
         </div>
@@ -173,7 +173,7 @@
                   creation.</div>
               </li>
               <li>
-                <div class="caption">Generated tests and exploits successfully reproduce or outmatch expert-written ones
+                <div class="caption">Generated tests and exploits successfully match or outperform expert-written ones
                   on BaxBench scenarios, tightening the upper security bound.</div>
               </li>
               <li>
@@ -268,10 +268,9 @@
               Performance on AutoBaxBench Hard difficulty: Challenging scenarios with complex security requirements that
               test the limits of current LLMs.
             </div>
-            <div class="caption" style="margin-top: 15px; font-style: italic;">
-              Models marked with * were used during the AutoBaxBuilder pipeline iteration. Please interpret their scores
-              cautiously.
-            </div>
+            <p>
+              Models marked with * were used for task generation, indicating potential contamination. 
+            </p>
           </div>
         </div>
       </div>
@@ -305,23 +304,21 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">How does <span class="orange">AutoBaxBuilder</span> work?</h2>
           <div class="centered-figure">
-            <img class="figure-overview" src="../static/images/autobaxbuilder_pipeline.png" alt="AutoBaxBuilder Pipeline"
+            <img class="figure-overview" src="../static/images/abb_overview.svg" alt="AutoBaxBuilder Pipeline"
               style="max-width: 100%; height: auto;">
           </div>
           <div class="content has-text-centered has-text-justified">
             <div class="caption">
-              <strong>Figure 1: Overview of our method.</strong> The LLM-based pipeline starts from scratch and produces
-              a complete benchmark instance with (1) scenario description, (2) test cases and (3) end-to-end exploits.
-              After generating a novel scenario description, the LLM generates functional tests and solutions, iterating
-              until execution feedback confirms that the tests are solvable. Next, the LLM designs end-to-end exploits
-              to expose vulnerabilities, iterating until it finds a pair of solutions, one on which the exploit succeeds
-              and one on which it fails. The results are combined into a new task instance.
+              <strong>AutoBaxBuilder is an LLM-based pipeline that starts from scratch and produces
+              a complete benchmark instance with scenario description, test cases and end-to-end exploits.</strong> 
             </div>
             <p>
               The AutoBaxBuilder pipeline employs an agentic LLM-based approach that starts from scratch and produces
-              complete benchmark instances. The pipeline generates novel scenario descriptions, automatically creates
-              functional tests through iterative refinement based on execution feedback, and designs end-to-end security
-              exploits that are validated against multiple solutions to ensure they correctly identify vulnerabilities.
+              complete benchmark instances. The pipeline first generates novel scenario descriptions,
+              functional tests and solutions, iterating until execution feedback confirms that the tests are solvable.
+              Next, the LLM designs end-to-end exploits
+              to expose vulnerabilities, iterating until it finds a pair of solutions, one on which the exploit succeeds
+              and one on which it fails. The results are combined into a new task instance.
             </p>
           </div>
         </div>
@@ -335,13 +332,13 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3"><span class="orange">AutoBaxBuilder</span> vs Expert-Written Tests</h2>
           <div class="centered-figure">
-            <img class="figure-overview" src="../static/images/stats_autobaxbench_vs_baxbench.png"
+            <img class="figure-overview" src="../static/images/abb_bb_comparison.svg"
               alt="AutoBaxBuilder vs Expert-Written Tests Comparison" style="max-width: 100%; height: auto;">
           </div>
           <div class="content has-text-centered has-text-justified">
             <div class="caption">
-              Comparison of AutoBaxBuilder-generated tests and exploits against expert-written ones on the original
-              BaxBench scenarios.
+              The trend and overall performance of LLMs on AutoBaxBuilder-generated tests and exploits is similar to the performance on expert-written tests from the original
+              BaxBench.
             </div>
             <p>
               To validate the quality of AutoBaxBuilder, we compared its generated tests and exploits against those
@@ -356,23 +353,6 @@
   </section>
 
   <section class="section hero">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">How can I contribute to <span class="orange">AutoBaxBench</span>?</h2>
-          <div class="content has-text-centered has-text-justified">
-            <p>
-              We welcome contributions to improve the AutoBaxBuilder pipeline, add new scenarios generated by the
-              system, or provide feedback on the quality of generated tasks. Please visit our <a
-                href="https://github.com/logic-star-ai/baxbench" target="_blank">GitHub</a> repository for details.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section hero is-light">
     <div class="container is-max-desktop content">
       <h2 class="title is-5">Citation</h2>
       <pre id="BibTeX">@article{vonarx2025autobaxbenchbootstrappingcode,

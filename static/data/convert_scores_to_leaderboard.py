@@ -106,7 +106,7 @@ def format_model_name(model_name: str) -> str:
         'gpt-4o' -> 'GPT-4o'
         'claude-3-7-sonnet-20250219' -> 'Claude 3.7 Sonnet'
         'google-gemini-2.5-pro-preview-03-25' -> 'Gemini 2.5 Pro'
-        'gpt-5-2025-08-07' -> 'GPT-5*' (used in pipeline)
+        'gpt-5-2025-08-07' -> 'GPT-5 *' (used in pipeline)
     """
     # Common model name mappings
     formatted_name = None
@@ -114,11 +114,11 @@ def format_model_name(model_name: str) -> str:
     if 'gpt-4o' in model_name.lower():
         formatted_name = 'GPT-4o'
     elif 'gpt-5' in model_name.lower():
-        formatted_name = 'GPT-5*'  # Used in AutoBaxBuilder pipeline
+        formatted_name = 'GPT-5 *'  # Used in AutoBaxBuilder pipeline
     elif 'claude-sonnet-4-5' in model_name.lower():
         formatted_name = 'Claude Sonnet 4.5'
     elif 'claude-sonnet-4-20250514' in model_name.lower():
-        formatted_name = 'Claude Sonnet 4*'  # Used in AutoBaxBuilder pipeline
+        formatted_name = 'Claude Sonnet 4 *'  # Used in AutoBaxBuilder pipeline
     elif 'claude-3-7-sonnet' in model_name.lower():
         formatted_name = 'Claude 3.7 Sonnet'
     elif 'gemini-2.5-pro' in model_name.lower():
@@ -130,9 +130,9 @@ def format_model_name(model_name: str) -> str:
     elif 'qwen2.5-7b' in model_name.lower():
         formatted_name = 'Qwen 2.5 7B'
     elif 'qwen3-coder-480b' in model_name.lower() or 'qwen/qwen3-coder' in model_name.lower():
-        formatted_name = 'Qwen3 Coder*'  # Used in AutoBaxBuilder pipeline
+        formatted_name = 'Qwen3 Coder *'  # Used in AutoBaxBuilder pipeline
     elif 'deepseek-r1' in model_name.lower() or 'deepseek-ai/deepseek-r1' in model_name.lower():
-        formatted_name = 'DeepSeek R1*'  # Used in AutoBaxBuilder pipeline
+        formatted_name = 'DeepSeek R1 *'  # Used in AutoBaxBuilder pipeline
     elif 'grok-4' in model_name.lower():
         formatted_name = 'Grok 4'
     else:
