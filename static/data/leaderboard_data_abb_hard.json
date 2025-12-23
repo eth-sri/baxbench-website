@@ -12,7 +12,7 @@
     "insec_pass": 68.21145124716554
   },
   {
-    "model": "Claude Sonnet 4*",
+    "model": "Claude Sonnet 4 *",
     "pass_1": 0.6857142857142857,
     "sec_pass_1": 0.22142857142857145,
     "insec_pass": 69.47278911564626
