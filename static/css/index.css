@@ -10,6 +10,43 @@ a {
   background: #EC963B;
 }
 
+.global-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 30px;
+}
+
+.global-tab {
+  padding: 12px 30px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.global-tab:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.global-tab:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.global-tab:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.global-tab.active {
+  background: white;
+  color: #EC963B;
+  border-color: white;
+}
+
 .hero.is-light-orange {
   background-color: #ec963b81;
 }
@@ -240,9 +277,18 @@ button.active {
   display: none;
 } */
 
-#leaderboard-toggle-buttons.buttons.is-centered {
+#benchmark-toggle-buttons.buttons.is-centered {
   padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#leaderboard-toggle-buttons.buttons.is-centered,
+.prompt-toggles {
+  padding-top: 10px;
   padding-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* If you'd like the selected button to have a clearly different style,
@@ -259,10 +305,17 @@ button.active {
   box-shadow: 0 0 0 0.125em #b222227d  !important;
 }
 
-#leaderboard-toggle-buttons .button:not(.is-selected) {
+#leaderboard-toggle-buttons .button:not(.is-selected),
+.prompt-toggles .button:not(.is-selected),
+#benchmark-toggle-buttons .button:not(.is-selected) {
   background-color: #EC963B !important;
   border-color: #EC963B !important;
   color: #fff !important;
+}
+
+.benchmark-toggle {
+  font-weight: 600;
+  font-size: 1.05em;
 }
 
 tbody tr:hover {
@@ -357,7 +410,8 @@ th[data-sort-col]:hover {
   width: 19%;
 }
 
-.table-container th:nth-child(4),
-.table-container td:nth-child(4) {
-  width: 19%;
+#comparison-plot {
+  border-radius: 5px;
+  font-family: 'Google Sans', sans-serif;
 }
+

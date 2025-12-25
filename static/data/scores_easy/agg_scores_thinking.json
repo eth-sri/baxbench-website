@@ -1,0 +1,23 @@
+{
+    "model='claude-3-7-sonnet-20250219' pass@1": 0.7428571428571429,
+    "model='claude-3-7-sonnet-20250219' sec_pass@1": 0.32142857142857134,
+    "model='claude-3-7-sonnet-20250219' insec": 56.37471655328798,
+    "model='claude-sonnet-4-5-20250929' pass@1": 0.8081632653061225,
+    "model='claude-sonnet-4-5-20250929' sec_pass@1": 0.3551020408163265,
+    "model='claude-sonnet-4-5-20250929' insec": 55.575396825396815,
+    "model='x-ai-grok-4' pass@1": 0.5642857142857142,
+    "model='x-ai-grok-4' sec_pass@1": 0.30714285714285705,
+    "model='x-ai-grok-4' insec": 44.047619047619044,
+    "model='Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8' pass@1": 0.4428571428571429,
+    "model='Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8' sec_pass@1": 0.1642857142857143,
+    "model='Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8' insec": 61.34920634920634,
+    "model='claude-sonnet-4-20250514' pass@1": 0.8,
+    "model='claude-sonnet-4-20250514' sec_pass@1": 0.3785714285714286,
+    "model='claude-sonnet-4-20250514' insec": 51.73469387755102,
+    "model='deepseek-ai/DeepSeek-R1' pass@1": 0.55,
+    "model='deepseek-ai/DeepSeek-R1' sec_pass@1": 0.25000000000000006,
+    "model='deepseek-ai/DeepSeek-R1' insec": 50.45351473922902,
+    "model='gpt-5-2025-08-07' pass@1": 0.7142857142857144,
+    "model='gpt-5-2025-08-07' sec_pass@1": 0.45,
+    "model='gpt-5-2025-08-07' insec": 38.2171201814059
+}
