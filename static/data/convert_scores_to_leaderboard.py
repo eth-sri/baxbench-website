@@ -135,6 +135,10 @@ def format_model_name(model_name: str) -> str:
         formatted_name = 'DeepSeek R1 *'  # Used in AutoBaxBuilder pipeline
     elif 'grok-4' in model_name.lower():
         formatted_name = 'Grok 4'
+    elif 'llama-3.3-70b-instruct' in model_name.lower():
+        formatted_name = 'Llama 3.3 70B'
+    elif 'gemini-gemini-3-pro-preview' in model_name.lower():
+        formatted_name = 'Gemini 3 Pro'
     else:
         # Fallback: capitalize first letter
         formatted_name = model_name.replace('-', ' ').title()
