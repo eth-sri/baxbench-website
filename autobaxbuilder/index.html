@@ -41,6 +41,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="../static/js/fontawesome.all.min.js"></script>
   <script src="../static/js/index.js"></script> <!-- our JS -->
+  <script src="../static/js/abb_chart.js"></script> <!-- leaderboard chart -->
   <!-- Friendly Analytics -->
   <script>
     var _paq = window._paq = window._paq || [];
@@ -197,66 +198,8 @@
           </h2>
           <div class="content has-text-justified">
             In the leaderboard below, we show the performance of state-of-the-art LLMs tested on AutoBaxBench scenarios.
-            The leaderboard can be toggled between the Easy, Medium and Hard subsets, which have 1, 3 and 5 API endpoints to implement respectively. See our <a href="https://arxiv.org/abs/2512.21132" target="_blank">paper</a> for more results. 
-            <div id="leaderboard-toggle-buttons" class="buttons is-centered">
-              <button class="button is-warning" id="btn-easy" onclick="showLeaderboard('abb-easy', this)">
-                Easy
-              </button>
-              <button class="button is-warning" id="btn-medium" onclick="showLeaderboard('abb-medium', this)">
-                Medium
-              </button>
-              <button class="button is-warning" id="btn-hard" onclick="showLeaderboard('abb-hard', this)">
-                Hard
-              </button>
-            </div>
-            <div class="table-container" id="abb-easy-container">
-              <table id="leaderboard-abb-easy">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
-                    <th data-sort-col="pass_1">Correct</th>
-                    <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Rows will be populated by JavaScript -->
-                </tbody>
-              </table>
-            </div>
-            <div class="table-container" id="abb-medium-container">
-              <table id="leaderboard-abb-medium">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
-                    <th data-sort-col="pass_1">Correct</th>
-                    <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Rows will be populated by JavaScript -->
-                </tbody>
-              </table>
-            </div>
-            <div class="table-container" id="abb-hard-container">
-              <table id="leaderboard-abb-hard">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Model</th>
-                    <th data-sort-col="sec_pass_1">Correct &<br>Secure</th>
-                    <th data-sort-col="pass_1">Correct</th>
-                    <th data-sort-col="insec_pass">% Insecure<br>of Correct</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Rows will be populated by JavaScript -->
-                </tbody>
-              </table>
-            </div>
+            For each model, the three bars show the Easy, Medium and Hard subsets, which have 1, 3 and 5 API endpoints to implement respectively. The number on top of a bar is the share of correct solutions, the number below it the share of correct and secure solutions. Scroll sideways to see all models, and click Average, Easy, Medium or Hard in the legend to sort the models by their share of correct and secure solutions there. See our <a href="https://arxiv.org/abs/2512.21132" target="_blank">paper</a> for more results.
+            <div class="lb-chart" id="abb-leaderboard-chart"></div>
             <div class="caption">
               The models are only prompted to complete the coding task. The prompt contains no security-specific instructions, reflecting a realistic interaction with a developer that does not make explicit security considerations. 
             </div>

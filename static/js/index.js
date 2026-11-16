@@ -72,10 +72,6 @@ let noneData = [];
 let genericData = [];
 let specificData = [];
 
-let abbEasyData = [];
-let abbMediumData = [];
-let abbHardData = [];
-
 // For storing each model's rank in the "none" leaderboard
 let noneRanks = { "sec_pass_1": {}, "pass_1": {}, "insec_pass": {} };
 
@@ -144,48 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
       addSorting('specific');
     })
     .catch(err => console.error('Fetch error for specific:', err));
-
-  // Fetch AutoBaxBench Easy data
-  fetch('/static/data/leaderboard_data_abb_easy.json')
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      abbEasyData = data;
-      sortData('abb-easy');
-      buildLeaderboard('abb-easy');
-      addSorting('abb-easy');
-    })
-    .catch(err => console.error('Fetch error for abb-easy:', err));
-
-  // Fetch AutoBaxBench Medium data
-  fetch('/static/data/leaderboard_data_abb_medium.json')
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      abbMediumData = data;
-      sortData('abb-medium');
-      buildLeaderboard('abb-medium');
-      addSorting('abb-medium');
-    })
-    .catch(err => console.error('Fetch error for abb-medium:', err));
-
-  // Fetch AutoBaxBench Hard data
-  fetch('/static/data/leaderboard_data_abb_hard.json')
-    .then(response => {
-      if (!response.ok) throw new Error('Network response was not ok');
-      return response.json();
-    })
-    .then(data => {
-      abbHardData = data;
-      sortData('abb-hard');
-      buildLeaderboard('abb-hard');
-      addSorting('abb-hard');
-    })
-    .catch(err => console.error('Fetch error for abb-hard:', err));
 });
 
 // 2) SORTING LOGIC
@@ -197,12 +151,6 @@ function sortData(tableName) {
     dataArr = genericData;
   } else if (tableName === 'specific') {
     dataArr = specificData;
-  } else if (tableName === 'abb-easy') {
-    dataArr = abbEasyData;
-  } else if (tableName === 'abb-medium') {
-    dataArr = abbMediumData;
-  } else if (tableName === 'abb-hard') {
-    dataArr = abbHardData;
   } else {
     return;  // Invalid table name
   }
@@ -270,12 +218,6 @@ function buildLeaderboard(tableName) {
     dataArr = genericData;
   } else if (tableName === 'specific') {
     dataArr = specificData;
-  } else if (tableName === 'abb-easy') {
-    dataArr = abbEasyData;
-  } else if (tableName === 'abb-medium') {
-    dataArr = abbMediumData;
-  } else if (tableName === 'abb-hard') {
-    dataArr = abbHardData;
   } else {
     return;  // Invalid table name
   }
@@ -287,11 +229,8 @@ function buildLeaderboard(tableName) {
   if (!tbody) return;  // Table doesn't exist on this page
   tbody.innerHTML = '';
 
-  // Determine if this is a baseline table and which ranks to use for comparison
-  // For AutoBaxBench, all difficulties are baselines (no rank delta)
-  // For BaxBench, only 'none' is baseline, 'generic' and 'specific' show deltas
-  const isBaseline = (tableName === 'none' || tableName === 'abb-easy' || tableName === 'abb-medium' || tableName === 'abb-hard');
-  //   const baselineRanks = tableName.startsWith('abb-') ? abbEasyRanks : noneRanks;
+  // Only 'none' is the baseline, 'generic' and 'specific' show rank deltas to it
+  const isBaseline = tableName === 'none';
   const baselineRanks = noneRanks;
 
   dataArr.forEach((entry, index) => {
@@ -354,75 +293,45 @@ function buildLeaderboard(tableName) {
 }
 
 
-// Ensure that only the 'none' table is shown on page load
-// Ensure that only the 'none' table is shown on page load for BaxBench page
+// Ensure that only the 'none' table is shown on page load.
+// This script is also loaded on the AutoBaxBuilder page, which has none of these elements.
 document.addEventListener('DOMContentLoaded', function () {
-  // Check if we're on the AutoBaxBench page
-  const isAutoBaxBenchPage = document.getElementById('leaderboard-abb-easy') !== null;
-
-  // BaxBench tables
+  // Tables
   const noneTable = document.getElementById('leaderboard-none');
   const genericTable = document.getElementById('leaderboard-generic');
   const specificTable = document.getElementById('leaderboard-specific');
 
-  if (noneTable) noneTable.style.display = isAutoBaxBenchPage ? 'none' : 'table';
+  if (noneTable) noneTable.style.display = 'table';
   if (genericTable) genericTable.style.display = 'none';
   if (specificTable) specificTable.style.display = 'none';
-
-  // AutoBaxBench tables (only if they exist)
-  const abbEasyTable = document.getElementById('leaderboard-abb-easy');
-  const abbMediumTable = document.getElementById('leaderboard-abb-medium');
-  const abbHardTable = document.getElementById('leaderboard-abb-hard');
-
-  if (abbEasyTable) abbEasyTable.style.display = 'none';
-  if (abbMediumTable) abbMediumTable.style.display = isAutoBaxBenchPage ? 'table' : 'none';
-  if (abbHardTable) abbHardTable.style.display = 'none';
 
   // Captions
   const noneCaption = document.getElementById('none-caption');
   const genericCaption = document.getElementById('generic-caption');
   const specificCaption = document.getElementById('specific-caption');
-  const abbEasyCaption = document.getElementById('abb-easy-caption');
-  const abbMediumCaption = document.getElementById('abb-medium-caption');
-  const abbHardCaption = document.getElementById('abb-hard-caption');
 
-  if (noneCaption) noneCaption.style.display = isAutoBaxBenchPage ? 'none' : '';
+  if (noneCaption) noneCaption.style.display = '';
   if (genericCaption) genericCaption.style.display = 'none';
   if (specificCaption) specificCaption.style.display = 'none';
-  if (abbEasyCaption) abbEasyCaption.style.display = 'none';
-  if (abbMediumCaption) abbMediumCaption.style.display = isAutoBaxBenchPage ? '' : 'none';
-  if (abbHardCaption) abbHardCaption.style.display = 'none';
 
   // Containers
   const noneContainer = document.getElementById('none-container');
   const genericContainer = document.getElementById('generic-container');
   const specificContainer = document.getElementById('specific-container');
-  const abbEasyContainer = document.getElementById('abb-easy-container');
-  const abbMediumContainer = document.getElementById('abb-medium-container');
-  const abbHardContainer = document.getElementById('abb-hard-container');
 
-  if (noneContainer) noneContainer.style.display = isAutoBaxBenchPage ? 'none' : '';
+  if (noneContainer) noneContainer.style.display = '';
   if (genericContainer) genericContainer.style.display = 'none';
   if (specificContainer) specificContainer.style.display = 'none';
-  if (abbEasyContainer) abbEasyContainer.style.display = 'none';
-  if (abbMediumContainer) abbMediumContainer.style.display = isAutoBaxBenchPage ? '' : 'none';
-  if (abbHardContainer) abbHardContainer.style.display = 'none';
 
-  // Highlight the appropriate button by default
+  // Highlight the default button
   const btnNone = document.getElementById('btn-none');
-  const btnMedium = document.getElementById('btn-medium');
-
-  if (isAutoBaxBenchPage && btnMedium) {
-    btnMedium.classList.add('is-selected');
-  } else if (btnNone) {
-    btnNone.classList.add('is-selected');
-  }
+  if (btnNone) btnNone.classList.add('is-selected');
 });
 
 
 function showLeaderboard(type, button) {
   // Hide all leaderboard tables
-  const tables = ['none', 'generic', 'specific', 'abb-easy', 'abb-medium', 'abb-hard'];
+  const tables = ['none', 'generic', 'specific'];
   tables.forEach(t => {
     const table = document.getElementById('leaderboard-' + t);
     const container = document.getElementById(t + '-container');
@@ -449,8 +358,8 @@ function showLeaderboard(type, button) {
   // Make sure the arrow is visible on the newly shown table
   highlightSortedColumn(type);
 
-  // Remove highlight from all prompt/difficulty toggle buttons
-  const buttons = ['btn-none', 'btn-generic', 'btn-specific', 'btn-easy', 'btn-medium', 'btn-hard'];
+  // Remove highlight from all prompt toggle buttons
+  const buttons = ['btn-none', 'btn-generic', 'btn-specific'];
   buttons.forEach(btnId => {
     const btn = document.getElementById(btnId);
     if (btn) btn.classList.remove('is-selected');

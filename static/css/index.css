@@ -415,3 +415,163 @@ th[data-sort-col]:hover {
   font-family: 'Google Sans', sans-serif;
 }
 
+
+/* AutoBaxBench leaderboard chart (static/js/abb_chart.js), styled after the paper figure */
+
+@font-face {
+  font-family: 'DejaVu Serif';
+  src: url('../fonts/DejaVuSerif-latin.woff2') format('woff2');
+  font-display: swap;
+}
+
+.lb-chart {
+  /* up to 1200px wide and centered on the text column: negative side margins let it stick out */
+  --side-margin: calc(50% - min(600px, 50vw - 1rem));
+  margin: 1.25rem var(--side-margin) 0.75rem;
+  font-family: 'DejaVu Serif', Georgia, serif;
+  color: #000;
+  text-align: left;
+}
+
+.lb-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem 2rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.lb-legend > .lb-legend-item {
+  padding-bottom: 4px;  /* lines up with the last row of the buttons next to it */
+}
+
+.lb-legend-levels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.25rem 0.75rem;
+}
+
+/* a legend entry that is a button: click to sort by it */
+.lb-legend-level {
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 8px 4px;
+  cursor: pointer;
+}
+
+.lb-legend-level:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.lb-legend-title {
+  display: block;
+  text-align: center;
+}
+
+.lb-legend-level[aria-pressed="true"] .lb-legend-title::after {
+  content: ' \2193';  /* down arrow: sorted by this entry */
+}
+
+.lb-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  white-space: nowrap;
+}
+
+.lb-body {
+  display: flex;
+  align-items: flex-start;
+}
+
+.lb-axis,
+.lb-plot {
+  display: block;
+  flex: none;
+}
+
+.lb-scroll {
+  /* width 0 + grow: takes the space that is left, and the wide plot inside does not stretch the page */
+  flex: 1 1 auto;
+  width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 6px;
+  --fade-left: 0px;
+  --fade-right: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade-left), #000 calc(100% - var(--fade-right)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade-left), #000 calc(100% - var(--fade-right)), transparent);
+}
+
+/* a styled scrollbar stays visible, so it is clear that the plot scrolls */
+.lb-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.lb-scroll::-webkit-scrollbar-thumb {
+  background: #EC963B;
+  border-radius: 4px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .lb-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #EC963B transparent;
+  }
+}
+
+.lb-tick {
+  font-size: 13px;
+}
+
+.lb-name {
+  font-size: 14px;
+}
+
+.lb-score {
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.lb-score-halo {
+  paint-order: stroke;
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.lb-bar {
+  stroke: #000;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+/* hovering a bar highlights it: all the others fade */
+.lb-bar-group {
+  transition: opacity 0.12s;
+}
+
+.lb-plot:has(.lb-bar-group:hover) .lb-bar-group:not(:hover) {
+  opacity: 0.35;
+}
+
+.lb-grid {
+  stroke: #b0b0b0;
+  stroke-opacity: 0.3;
+  stroke-width: 0.8px;
+}
+
+.lb-frame {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.lb-baseline {
+  stroke-width: 3px;
+}
