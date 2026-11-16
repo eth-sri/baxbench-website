@@ -19,12 +19,16 @@ let modelLogos = {
 	'GPT-4.1': '/static/images/OpenAI-black-monoblossom.png',
 	'GPT-5': '/static/images/OpenAI-black-monoblossom.png',
 	'GPT-4.1 Mini': '/static/images/OpenAI-black-monoblossom.png',
+  'GPT-6 Astra': '/static/images/OpenAI-black-monoblossom.png',
   'Claude 3.5 Sonnet': '/static/images/claude-ai-icon.png',
 	'Claude 3.7 Sonnet Thinking': '/static/images/claude-ai-icon.png',
 	'Claude 4 Sonnet Thinking': '/static/images/claude-ai-icon.png',
 	'Claude Opus 4.5 Thinking': '/static/images/claude-ai-icon.png',
+  'Claude Opus 5.5': '/static/images/claude-ai-icon.png',
+  'Claude Fable 5.2': '/static/images/claude-ai-icon.png',
   'Llama 3.3 70B': '/static/images/meta-logo.png',
 	'Llama 4 Maverick': '/static/images/meta-logo.png',
+  'Muse Wonder': '/static/images/meta-logo.png',
   'DeepSeek V3': '/static/images/deepseek-logo-icon.png',
 	'DeepSeek V3 03-24': '/static/images/deepseek-logo-icon.png',
 	'DS R1 Distill Qwen 32B': '/static/images/deepseek-logo-icon.png',
@@ -42,6 +46,8 @@ let modelLogos = {
 	'Gemini 2 Flash': '/static/images/gemini.png',
 	'Gemini 2.5 Pro': '/static/images/gemini.png',
   'Gemini 3 Pro': '/static/images/gemini.png',
+  'Gemini 4 Carbon': '/static/images/gemini.png',
+  'Gemini 4 Argon': '/static/images/gemini.png',
 	'Grok 2': '/static/images/grok.png',
 	'Grok 3': '/static/images/grok.png',
 	'Grok 4': '/static/images/grok.png',
@@ -368,8 +374,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const abbMediumTable = document.getElementById('leaderboard-abb-medium');
   const abbHardTable = document.getElementById('leaderboard-abb-hard');
 
-  if (abbEasyTable) abbEasyTable.style.display = isAutoBaxBenchPage ? 'table' : 'none';
-  if (abbMediumTable) abbMediumTable.style.display = 'none';
+  if (abbEasyTable) abbEasyTable.style.display = 'none';
+  if (abbMediumTable) abbMediumTable.style.display = isAutoBaxBenchPage ? 'table' : 'none';
   if (abbHardTable) abbHardTable.style.display = 'none';
 
   // Captions
@@ -383,8 +389,8 @@ document.addEventListener('DOMContentLoaded', function () {
   if (noneCaption) noneCaption.style.display = isAutoBaxBenchPage ? 'none' : '';
   if (genericCaption) genericCaption.style.display = 'none';
   if (specificCaption) specificCaption.style.display = 'none';
-  if (abbEasyCaption) abbEasyCaption.style.display = isAutoBaxBenchPage ? '' : 'none';
-  if (abbMediumCaption) abbMediumCaption.style.display = 'none';
+  if (abbEasyCaption) abbEasyCaption.style.display = 'none';
+  if (abbMediumCaption) abbMediumCaption.style.display = isAutoBaxBenchPage ? '' : 'none';
   if (abbHardCaption) abbHardCaption.style.display = 'none';
 
   // Containers
@@ -398,16 +404,16 @@ document.addEventListener('DOMContentLoaded', function () {
   if (noneContainer) noneContainer.style.display = isAutoBaxBenchPage ? 'none' : '';
   if (genericContainer) genericContainer.style.display = 'none';
   if (specificContainer) specificContainer.style.display = 'none';
-  if (abbEasyContainer) abbEasyContainer.style.display = isAutoBaxBenchPage ? '' : 'none';
-  if (abbMediumContainer) abbMediumContainer.style.display = 'none';
+  if (abbEasyContainer) abbEasyContainer.style.display = 'none';
+  if (abbMediumContainer) abbMediumContainer.style.display = isAutoBaxBenchPage ? '' : 'none';
   if (abbHardContainer) abbHardContainer.style.display = 'none';
 
   // Highlight the appropriate button by default
   const btnNone = document.getElementById('btn-none');
-  const btnEasy = document.getElementById('btn-easy');
+  const btnMedium = document.getElementById('btn-medium');
 
-  if (isAutoBaxBenchPage && btnEasy) {
-    btnEasy.classList.add('is-selected');
+  if (isAutoBaxBenchPage && btnMedium) {
+    btnMedium.classList.add('is-selected');
   } else if (btnNone) {
     btnNone.classList.add('is-selected');
   }

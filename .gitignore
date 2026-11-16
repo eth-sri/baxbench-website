@@ -3,3 +3,4 @@
 _site/
 **/.DS_Store
 static/data/pull_tables.sh
+static/data/update_scores_from_here.sh
