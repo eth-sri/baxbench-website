@@ -48,6 +48,7 @@ let modelLogos = {
   'Gemini 3 Pro': '/static/images/gemini.png',
   'Gemini 4 Carbon': '/static/images/gemini.png',
   'Gemini 4 Argon': '/static/images/gemini.png',
+  'Gemini 4 Neon': '/static/images/gemini.png',
 	'Grok 2': '/static/images/grok.png',
 	'Grok 3': '/static/images/grok.png',
 	'Grok 4': '/static/images/grok.png',
